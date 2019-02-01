@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Title</title>
+    <!-- <link rel="stylesheet" href="style.css"> -->
+</head>
+
+<body>
+
+
+    <p>This is a Paregraph Tag 1</p>
+    <div class="firstDiv"></div>
+    <div id="secoundDiv"></div>
+    <p>This is a Paregraph Tag 2</p>
+    <p id="sunResult"></p>
+
+    <button id="press" type="button">click Me</button>
+
+    <script type="text/javascript">
+        "use strict"
+        function addNewEle() {
+            var newP = document.createElement("p");
+            var textNode = document.createTextNode('This is a new generated Paragraph');
+
+            newP.appendChild(textNode);
+            document.getElementById('secoundDiv').appendChild(newP);
+        }
+
+        addNewEle();
+
+
+        // Arrow function
+
+        function additionTwoVal(x, y) {
+            return x + y;
+        }
+        // document.getElementById('sunResult').innerHTML = additionTwoVal(5,5);
+
+        var addVal = _ => {
+            return ({ 'x': '100' });
+        };
+        //console.log(addVal());
+        document.getElementById('sunResult').innerHTML = addVal();
+
+
+        var obj = {
+            id: 42,
+            counter: function counter() {
+                setTimeout(function () {
+                    console.log(this.id);
+                }.bind(this), 1000);
+            }
+        };
+        //console.log("obj", obj.counter());
+
+
+        var esPbj = {
+            id: 45,
+            counter: function counter() {
+                setTimeout(() => {
+                    console.log('run...', this.id);
+                }, 1000);
+            }
+        }
+        //console.log("esPbj....", esPbj.counter());
+
+        var cat = {
+            lives: 9,
+            jumps: () => {
+                console.log('da', this);
+                this.lives--;
+            },
+        }
+        console.log("cat....", cat.jumps());
+
+        // var button = document.getElementById('press');
+        // button.addEventListener('click', () => {
+        //     console.log("press...", this.classList);
+        //     this.classList.toggle('on');
+        // });
+
+
+
+        // define a function
+        var myFunction = function () {
+            console.log("this______", this);
+        };
+
+        // call it
+        myFunction();
+
+
+        // var myObject = {
+        //     myMethod: function () {
+        //         console.log(this);
+        //     }
+        // };
+
+        var myMethod = function () {
+            console.log(this);
+        };
+
+        console.log("myMethod", myMethod());
+
+        var myObject = {
+            myMethod: myMethod
+        };
+
+        console.log("myObject", myObject.myMethod);
+
+
+
+    </script>
+
+</body>
+
+</html>
